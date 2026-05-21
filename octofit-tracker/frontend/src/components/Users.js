@@ -21,14 +21,32 @@ const Users = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Users</h2>
-      <ul className="list-group">
-        {users.map((user, idx) => (
-          <li key={user.id || idx} className="list-group-item">
-            {JSON.stringify(user)}
-          </li>
-        ))}
-      </ul>
+      <h2 className="mb-4">Users</h2>
+      <div className="card">
+        <div className="card-body">
+          <div className="table-responsive">
+            <table className="table table-striped table-hover">
+              <thead className="table-dark">
+                <tr>
+                  {users.length > 0 && Object.keys(users[0]).map((key) => (
+                    <th key={key}>{key}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((user, idx) => (
+                  <tr key={user.id || idx}>
+                    {users.length > 0 && Object.keys(users[0]).map((key) => (
+                      <td key={key}>{String(user[key])}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {users.length === 0 && <div className="text-center">No users found.</div>}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

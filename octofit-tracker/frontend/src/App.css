@@ -1,31 +1,105 @@
+
 .App {
   text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  color: #2d2d2d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.octofit-logo {
+  height: 48px;
+  margin-right: 16px;
+  vertical-align: middle;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .octofit-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
+
 .App-header {
-  background-color: #282c34;
+  background-color: #1a2233;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #f5f7fa;
 }
 
-.App-link {
-  color: #61dafb;
+
+.App-link, a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.App-link:hover, a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Bootstrap overrides */
+.navbar {
+  background: linear-gradient(90deg, #1a2233 0%, #3a506b 100%) !important;
+}
+.navbar-brand, .navbar-nav .nav-link {
+  color: #f5f7fa !important;
+  font-weight: 500;
+}
+.navbar-brand img {
+  margin-right: 8px;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link:focus {
+  color: #ffd166 !important;
+}
+
+h2, h1, h3, h4, h5, h6 {
+  color: #3a506b;
+  font-weight: 700;
+}
+
+.btn, .btn-primary {
+  background: linear-gradient(90deg, #ffd166 0%, #ef476f 100%);
+  border: none;
+  color: #222;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover {
+  background: linear-gradient(90deg, #ef476f 0%, #ffd166 100%);
+  color: #222;
+}
+
+.table {
+  background: #f5f7fa;
+  color: #222;
+}
+.table thead {
+  background: linear-gradient(90deg, #3a506b 0%, #1a2233 100%);
+  color: #ffd166;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #e0e7ef;
+}
+
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(58, 80, 107, 0.08);
+  margin-bottom: 2rem;
+}
+.card-title {
+  color: #ef476f;
+}
+
+/* Favicon and logo tweaks */
+.favicon {
+  border-radius: 25%;
+  box-shadow: 0 2px 8px rgba(58, 80, 107, 0.15);
 }
 
 @keyframes App-logo-spin {

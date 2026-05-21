@@ -21,14 +21,32 @@ const Workouts = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Workouts</h2>
-      <ul className="list-group">
-        {workouts.map((workout, idx) => (
-          <li key={workout.id || idx} className="list-group-item">
-            {JSON.stringify(workout)}
-          </li>
-        ))}
-      </ul>
+      <h2 className="mb-4">Workouts</h2>
+      <div className="card">
+        <div className="card-body">
+          <div className="table-responsive">
+            <table className="table table-striped table-hover">
+              <thead className="table-dark">
+                <tr>
+                  {workouts.length > 0 && Object.keys(workouts[0]).map((key) => (
+                    <th key={key}>{key}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {workouts.map((workout, idx) => (
+                  <tr key={workout.id || idx}>
+                    {workouts.length > 0 && Object.keys(workouts[0]).map((key) => (
+                      <td key={key}>{String(workout[key])}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {workouts.length === 0 && <div className="text-center">No workouts found.</div>}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

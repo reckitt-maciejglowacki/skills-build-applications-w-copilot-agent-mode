@@ -1,18 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Activities from './components/Activities';
-import Leaderboard from './components/Leaderboard';
-import Teams from './components/Teams';
-import Users from './components/Users';
-import Workouts from './components/Workouts';
-import './App.css';
+
+import octofitLogo from '../public/octofitapp-small.png';
 
 function App() {
   return (
     <Router>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">OctoFit Tracker</Link>
+          <Link className="navbar-brand d-flex align-items-center" to="/">
+            <img src={process.env.PUBLIC_URL + '/octofitapp-small.png'} alt="OctoFit Logo" className="octofit-logo me-2" />
+            OctoFit Tracker
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -44,7 +41,14 @@ function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/users" element={<Users />} />
           <Route path="/workouts" element={<Workouts />} />
-          <Route path="/" element={<h2>Welcome to OctoFit Tracker!</h2>} />
+          <Route path="/" element={
+            <div className="card text-center">
+              <div className="card-body">
+                <h2 className="card-title mb-4">Welcome to OctoFit Tracker!</h2>
+                <p className="card-text">Track your activities, teams, workouts, and more with a beautiful Bootstrap interface.</p>
+              </div>
+            </div>
+          } />
         </Routes>
       </div>
     </Router>
